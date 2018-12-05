@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AssignmentOneTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-12-05T02:46:25" hostname="Saginis-MBP.home" time="0.013">
+  <properties/>
+  <testcase name="evenOrOddReturnEmptyListWhenGivenEmptyList()" classname="AssignmentOneTest" time="0.002"/>
+  <testcase name="evenOrOddReturnsTwoWordsForTwoInput()" classname="AssignmentOneTest" time="0.001"/>
+  <testcase name="evenOrOddReturnsOddForOne()" classname="AssignmentOneTest" time="0.003"/>
+  <testcase name="evenOrOddReturnEmptyListForNullInput()" classname="AssignmentOneTest" time="0.004"/>
+  <testcase name="evenOrOddReturnsEvenForFour()" classname="AssignmentOneTest" time="0.0"/>
+  <testcase name="evenOrOddReturnsEvenForZero()" classname="AssignmentOneTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
