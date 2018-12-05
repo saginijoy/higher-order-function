@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 
 final class AssignmentTwoTest {
