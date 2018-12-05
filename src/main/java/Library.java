@@ -1,15 +1,12 @@
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.BooleanSupplier;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -42,14 +39,12 @@ public class Library {
             .filter(shorterThanThree)
             .collect(Collectors.toList());
 
-    static Predicate<String> wordsShorterThan(final int minLength){
-        return testString->Optional.ofNullable(testString).orElse("")
-                .length()<minLength;
+    static Predicate<String> wordsShorterThan(final int minLength) {
+        return testString -> Optional.ofNullable(testString).orElse("")
+                .length() < minLength;
     }
 
-     static Predicate<String> shorterThanThree = wordsShorterThan(3);
-
-
+    static Predicate<String> shorterThanThree = wordsShorterThan(3);
 
 
     public static boolean removeShortWords(String testString) {
@@ -59,25 +54,28 @@ public class Library {
                 .orElse("")
                 .length() > 4;
     }
+
     //Dec 4 --join
     public static void main(String args[]) {
         // System.out.println(sum(1,2,3,4));
-        System.out.println("multiply : " + multiply(4,6));
+        System.out.println("multiply : " + multiply(4, 6));
 
     }
-    //join method implementation
-    static String join(String delimiter,  String...stringsToJoin) {
 
-        if(stringsToJoin == null )
-        {
+    //join method implementation
+    static String join(String delimiter, String... stringsToJoin) {
+
+        if (stringsToJoin == null) {
             return "";
         }
         return Arrays.stream(stringsToJoin)
 
-                .reduce((identity,accumulator)->{
-                    if(delimiter==null ||delimiter.length()==0){
-                        return identity+" "+accumulator;
-                    }else {return identity+delimiter+accumulator;}
+                .reduce((identity, accumulator) -> {
+                    if (delimiter == null || delimiter.length() == 0) {
+                        return identity + " " + accumulator;
+                    } else {
+                        return identity + delimiter + accumulator;
+                    }
                 })
                 .orElse("");
 
@@ -86,7 +84,7 @@ public class Library {
     private static long multiply(final int startInclusive, final int endInclusive) {
 
         return IntStream.rangeClosed(startInclusive, endInclusive)
-                .reduce((accumulator , currentNumber) -> {
+                .reduce((accumulator, currentNumber) -> {
                     System.out.println(accumulator);
                     System.out.println(currentNumber);
                     return accumulator * currentNumber;
@@ -95,14 +93,14 @@ public class Library {
                 .orElse(0);
     }
 
-    private static long sum(final int...numbersToSum) {
+    private static long sum(final int... numbersToSum) {
         return Arrays.stream(numbersToSum)
                 .reduce((left, right) -> left + right)
                 .orElse(0);
 
 
-
     }
+
     static List<String> reverseString(final List<String> stringToReverse) {
 
         if (stringToReverse == null) {
@@ -116,33 +114,28 @@ public class Library {
                 .collect(Collectors.toList());
     }
 
-    private static Function<String, String> toReverseString= stringReversed -> new StringBuilder(stringReversed).reverse().toString();
+    private static Function<String, String> toReverseString = stringReversed -> new StringBuilder(stringReversed).reverse().toString();
 
 
     public static Map<String, Integer> wordCounts(String sentence) {
 
 
-        if(sentence == null  )
-        {
+        if (sentence == null) {
             return Collections.emptyMap();
         }
-        String[] words=sentence.split(" ");
+        String[] words = sentence.split(" ");
         Map<String, Integer> result = new HashMap<String, Integer>();
 
-        Arrays.stream(words).forEach(word1-> {
+        Arrays.stream(words).forEach(word1 -> {
             // result.containsKey(word1) ? result.replace(word1,result.get(word1)+1) : result.put(word1,1);
-            if (result.containsKey(word1)){
-                result.replace(word1,result.get(word1)+1);
-            }
-            else {
-                result.put(word1,1);
+            if (result.containsKey(word1)) {
+                result.replace(word1, result.get(word1) + 1);
+            } else {
+                result.put(word1, 1);
             }
         });
 
         return result;
-
-
-
 
     }
 }

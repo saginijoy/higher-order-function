@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 final class AssignmentTwo {
     public static List<String> pluck(List<Map<String,String>> property, String name) {
@@ -10,10 +11,7 @@ final class AssignmentTwo {
         {
             return Collections.emptyList();
         }
-
-        return Arrays.asList("bar");
-
-
+       return property.stream().map(map->map.get(name)).collect(Collectors.toList());
 
     }
 }
